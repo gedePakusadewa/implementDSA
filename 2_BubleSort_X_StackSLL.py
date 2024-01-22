@@ -1,16 +1,130 @@
 # REF https://iq.opengenus.org/bubble-sort-using-two-stacks/
 # how bubble sort with Stack SLL work:
-example Misalnya ada dua stack U1 dan U2. U1 dengan data stack 1, 45,
-87, 23, 56, 19 dimana 19 berada diposisi atas dan 1 berada pada
-posisi bawah dari stack.
+# for example, there are two stacks U1 and U2. U1 with data stack 1, 45,
+# 87, 23, 56, 19 where 19 is in the top position and 1 is in the
+# bottom position of the stack.
 
-U1 = 1 (bottom), 45, 87, 23, 56, 19(top)
-U2 = Empty
+# U1 = 1 (bottom), 45, 87, 23, 56, 19 (top)
+# U2 = Blank
 
-step 1:
-U1 = 1, 45, 87, 23, 56 -> U1 mem-POP-kan 19
-temp = 19 -> nilai 19 masuk ke variable sementara temp
-melakukan pengecekan, apakah U2 kosong atau nilai puncak stack U2 >= temp
+# Step 1:
+# U1 = 1, 45, 87, 23, 56 -> U1 POPs 19
+# temp = 19 -> value 19 goes into temporary variable temp
+# check whether U2 is empty or the peak value of the stack U2 >= temp
+# if true then the value 19 is pushed to U2
+# if false then all values in U2 are popped then these pop values are pushed to U1
+# until the condition evaluates to true
+# U2 = 19
+
+# step 2
+# U1 = 1, 45, 87, 23 -> U1 POPs 56
+# temp = 56
+
+# Check whether U2 peek value >= temp
+# because the condition is false, all U2 values are pop and pushed to U1 until the condition is true
+
+# result:
+# U1 = 1, 45, 87, 23, 19
+# U2 = 56
+
+# step 3
+# U1 = 1, 45, 87, 23 -> U1 POPs 19
+# temp = 19
+# U2 = 56
+
+# result:
+# U1 = 1, 45, 87, 23,
+# U2 = 56, 19
+
+# step 3
+# U1 = 1, 45, 87 -> U1 POPs 23
+# temp = 23
+# U2 = 56, 19
+
+# result:
+# U1 = 1, 45, 87, 19,
+# U2 = 56, 23
+
+# step 4
+# U1 = 1, 45, 87 -> U1 POPs 19
+# temp = 19
+# U2 = 56, 23
+
+# result:
+# U1 = 1, 45, 87,
+# U2 = 56, 23, 19
+
+# step 5
+# U1 = 1, 45 -> U1 POPs 87
+# temp = 87
+# U2 = 56, 23
+
+# result:
+# U1 = 1, 45, 19, 23, 56
+# U2 = 87
+
+# step 6
+# U1 = 1, 45, 19, 23 -> U1 POPs 56
+# temp = 56
+# U2 = 87
+
+# result:
+# U1 = 1, 45, 19, 23
+# U2 = 87, 56
+
+# step 7
+# U1 = 1, 45, 19 -> U1 POPs 23
+# temp = 23
+# U2 = 87, 56
+
+# result:
+# U1 = 1, 45, 19
+# U2 = 87, 56, 23
+
+# step 7
+# U1 = 1, 45 -> U1 POPs 19
+# temp = 19
+# U2 = 87, 56, 23
+
+# result:
+# U1 = 1, 45
+# U2 = 87, 56, 23, 19
+
+# step 8
+# U1 = 1 -> U1 POPs 45
+# temp = 45
+# U2 = 87, 56, 23, 19
+
+# result:
+# U1 = 1, 19, 23
+# U2 = 87, 56, 45
+
+# step 9
+# U1 = 1, 19 -> U1 POPs 23
+# temp = 23
+# U2 = 87, 56, 45
+
+# result:
+# U1 = 1, 19
+# U2 = 87, 56, 45, 23
+
+# step 10
+# U1 = 1 -> U1 POPs 19
+# temp = 19
+# U2 = 87, 56, 45, 23
+
+# result:
+# U1 = 1
+# U2 = 87, 56, 45, 23, 19
+
+# step 11
+# U1 = empty -> U1 POPs 1
+# temp = 1
+# U2 = 87, 56, 45, 23, 19
+
+# result:
+# U1 = empty
+# U2 = 87, 56, 45, 23, 19, 1
 
 
 class Node():
